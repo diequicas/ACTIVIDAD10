@@ -78,7 +78,7 @@ class Plantilla {
 }
 
 console.log(clubConfig.presentarClub());
-console.log("---------------------------------------------------");
+
 
 const miPlantilla = new Plantilla("Diego Simeone", 100);
 
@@ -90,7 +90,6 @@ console.log(miPlantilla.ficharJugador(j1));
 console.log(miPlantilla.ficharJugador(j2));
 console.log(miPlantilla.ficharJugador(j3));
 
-console.log("---------------------------------------------------");
 
 console.log(j1.marcarGol());
 console.log(j1.marcarGol());
