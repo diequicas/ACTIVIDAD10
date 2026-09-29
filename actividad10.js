@@ -29,7 +29,7 @@ class Jugador {
 
     cambiarEstadoLesion() {
         this.#lesionado = !this.#lesionado;
-        return `${this.nombre} ahora está ${this.#lesionado ? "lesionado" : "recuperado y disponible"}.`;
+        return `${this.nombre} ahora está lesionado.`;
     }
 
     getGoles() {
@@ -41,7 +41,7 @@ class Jugador {
     }
 
     obtenerInfo() {
-        return `${this.nombre} (#${this.dorsal}) - ${this.posicion} | Valor: ${this.valorMercado}M€ | Goles: ${this.#golesAnotados} | Lesionado: ${this.#lesionado ? "Sí" : "No"}`;
+        return `Nombre :${this.nombre} | Dorsal :#${this.dorsal} | Posicion: ${this.posicion} | Valor: ${this.valorMercado}M€ | Goles: ${this.#golesAnotados} | Lesionado: ${this.#lesionado}`;
     }
 }
 
@@ -58,9 +58,9 @@ class Plantilla {
         if (this.#presupuesto >= jugador.valorMercado) {
             this.#presupuesto -= jugador.valorMercado;
             this.#jugadores.push(jugador);
-            return `¡Fichaje exitoso! ${jugador.nombre} se une al equipo. Presupuesto restante: ${this.#presupuesto}M€`;
+            return `${jugador.nombre} ficha por el club. Presupuesto restante: ${this.#presupuesto}M€`;
         } else {
-            return `No hay suficiente presupuesto para fichar a ${jugador.nombre}. Coste: ${jugador.valorMercado}M€, Disponible: ${this.#presupuesto}M€`;
+            return `No hay suficiente presupuesto para fichar a ${jugador.nombre}`;
         }
     }
 
@@ -68,8 +68,10 @@ class Plantilla {
         if (this.#jugadores.length === 0) {
             return "La plantilla está actualmente vacía.";
         }
-        console.log(`--- Plantilla del ${clubConfig.nombre} (Entrenador: ${this.entrenador}) ---`);
-        this.#jugadores.forEach(j => console.log(`- ${j.obtenerInfo()}`));
+        console.log(`Plantilla del ${clubConfig.nombre} Entrenador: ${this.entrenador}`);
+        for(i = 0;i < this.#jugadores.length;i++){
+            console.log(this.#jugadores[i]);
+        }
     }
 
     obtenerPresupuesto() {
