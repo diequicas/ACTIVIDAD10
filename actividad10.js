@@ -98,6 +98,5 @@ console.log(j2.marcarGol());
 console.log(j1.cambiarEstadoLesion());
 console.log(j1.marcarGol()); 
 
-console.log("---------------------------------------------------");
 
 miPlantilla.listarPlantilla();
